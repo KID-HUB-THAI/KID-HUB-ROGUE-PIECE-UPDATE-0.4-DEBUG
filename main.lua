@@ -850,19 +850,6 @@ local function flyLoop()
 end
 
 -- ===== UI =====
-Tab:CreateDropdown({
-    Name = "Select Mob",
-    Options = getAllMobs(),
-    CurrentOption = nil,
-    MultipleOptions = false,
-    Callback = function(option)
-        if type(option) == "string" then
-            SelectedMob = option
-            print("Selected Mob:", option)
-        end
-    end
-}, "MobDropdown")
-
 Tab:CreateButton({
     Name = "Toggle Fly To Mob",
     Callback = function()
@@ -889,3 +876,16 @@ Tab:CreateSlider({
         end
     end
 })
+
+Tab:CreateDropdown({
+    Name = "Select Mob",
+    Options = getAllMobs(),
+    CurrentOption = nil,
+    MultipleOptions = false,
+    Callback = function(option)
+        if type(option) == "string" then
+            SelectedMob = option
+            print("Selected Mob:", option)
+        end
+    end
+}, "MobDropdown")
