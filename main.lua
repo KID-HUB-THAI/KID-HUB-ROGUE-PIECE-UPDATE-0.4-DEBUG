@@ -717,10 +717,10 @@ Tab:CreateDropdown({
 
 
 local Tab = Window:CreateTab({
-    Name = "fram",
-    Icon = "view_in_ar",
-    ImageSource = "Material",
-    ShowTitle = true
+	Name = "fram",
+	Icon = "view_in_ar",
+	ImageSource = "Material",
+	ShowTitle = true -- This will determine whether the big header text in the tab will show
 })
 
 -- ===== Services =====
@@ -864,19 +864,6 @@ Tab:CreateButton({
     end
 })
 
-Tab:CreateSlider({
-    Name = "Fly Distance",
-    Range = {0, 200},
-    Increment = 5,
-    CurrentValue = getgenv().FlyDistance,
-    Callback = function(val)
-        getgenv().FlyDistance = val
-        if att1 then
-            att1.Position = Vector3.new(0, val, 0)
-        end
-    end
-})
-
 Tab:CreateDropdown({
     Name = "Select Mob",
     Options = getAllMobs(),
@@ -889,3 +876,16 @@ Tab:CreateDropdown({
         end
     end
 }, "MobDropdown")
+
+Tab:CreateSlider({
+    Name = "Fly Distance",
+    Range = {0, 200},
+    Increment = 5,
+    CurrentValue = getgenv().FlyDistance,
+    Callback = function(val)
+        getgenv().FlyDistance = val
+        if att1 then
+            att1.Position = Vector3.new(0, val, 0)
+        end
+    end
+})
